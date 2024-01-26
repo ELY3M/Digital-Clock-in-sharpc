@@ -43,10 +43,11 @@ jobs:
       # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
       run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.SOLUTION_FILE_PATH}}
       
-    - uses: actions/upload-artifact@master
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v4
       with:
-      name: Bin
-      path: Digital-Clock-in-sharpc\Digital Clock\bin\Release\Digital Clock.exe
+      name: my-artifact
+      path: ${{env.SOLUTION_FILE_PATH}}
      
 
  
