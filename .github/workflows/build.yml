@@ -58,21 +58,28 @@ jobs:
         release_name: ${{ steps.version.outputs.version }}
         tag_name: ${{ github.run_number }}
         body: ${{ github.event.head_commit.message }}
- 
+
+    - name: Upload Release Asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ${{ steps.extract.outputs.destination }}
+        asset_name: ${{ steps.extract.outputs.destination }}
+        asset_content_type: application/zip
+
     - name: Upload Release
       uses: softprops/action-gh-release@v1
       with:
         draft: false
-        prerelease: false
-        release_name: ${{ steps.version.outputs.version }}      
+        prerelease: false    
         tag_name: ${{ github.run_number }}
         body: ${{ github.event.head_commit.message }}
         files: D:\a\Digital-Clock-in-sharpc\Digital-Clock-in-sharpc\Digital Clock\bin\Release\*
       env:
         GITHUB_TOKEN: ${{ github.token }}  
- 
- 
- 
+        
  
 
       
