@@ -51,12 +51,6 @@ jobs:
       env: 
         MYURL: ${{ steps.artifact-upload-step.outputs.artifact-url }}
 
-    - name: Download Artifact
-      uses: actions/download-artifact@v4
-      with:
-        name: Release
-        path: /bin/Release
-        
     - name: Create Release
       uses: actions/create-release@latest
       env:
@@ -73,9 +67,9 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ github.token }}
       with:
-        upload_url: ${MYURL}
-        asset_path: bin/Release
-        asset_name: Release
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: D:\a\Digital-Clock-in-sharpc\Digital-Clock-in-sharpc\Digital Clock\bin\Release\Release.zip
+        asset_name: Release.zip
         asset_content_type: application/zip
 
     - name: Upload Release
