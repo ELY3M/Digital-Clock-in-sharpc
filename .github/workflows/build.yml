@@ -67,7 +67,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ github.token }}
       with:
-        upload_url: ${{MYURL}}
+        upload_url: ${MYURL}
         asset_path: ${{ steps.extract.outputs.destination }}
         asset_name: ${{ steps.extract.outputs.destination }}
         asset_content_type: application/zip
