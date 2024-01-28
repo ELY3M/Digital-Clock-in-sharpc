@@ -55,12 +55,10 @@ jobs:
         draft: false
         prerelease: false
         release_name: ${{ steps.version.outputs.version }}
-        tag_name: ${{ steps.version.outputs.version }}
+        tag_name: ${{ github.event.head_commit.message }}
         body_path: ${{ github.event.head_commit.message }}      
     - name: Dump vars context
-      env:
-        VARS_JSON: ${{ toJSON(vars) }}
-      run: echo "${VARS_JSON}"        
+      run: echo ${{ toJSON(vars) }}        
 
  
  
