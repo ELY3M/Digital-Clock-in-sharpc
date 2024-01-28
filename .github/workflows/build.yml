@@ -50,6 +50,12 @@ jobs:
         retention-days: 1
       env: 
         MYURL: ${{ steps.artifact-upload-step.outputs.artifact-url }}
+
+    - name: Download Artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: Release
+        path: /bin/Release
         
     - name: Create Release
       uses: actions/create-release@latest
