@@ -45,13 +45,13 @@ jobs:
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: published
+        name: Release
         path: D:\a\Digital-Clock-in-sharpc\Digital-Clock-in-sharpc\Digital Clock\bin\Release\*
         retention-days: 1
       env: 
         MYURL: ${{ steps.artifact-upload-step.outputs.artifact-url }}
         
-    - name: release
+    - name: Create Release
       uses: actions/create-release@latest
       env:
         GITHUB_TOKEN: ${{ github.token }} 
@@ -68,8 +68,8 @@ jobs:
         GITHUB_TOKEN: ${{ github.token }}
       with:
         upload_url: ${MYURL}
-        asset_path: ${{ steps.extract.outputs.destination }}
-        asset_name: ${{ steps.extract.outputs.destination }}
+        asset_path: bin/Release
+        asset_name: Release
         asset_content_type: application/zip
 
     - name: Upload Release
