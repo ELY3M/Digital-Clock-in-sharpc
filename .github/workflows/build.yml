@@ -48,6 +48,17 @@ jobs:
       with:
         name: published
         path: D:\a\Digital-Clock-in-sharpc\Digital-Clock-in-sharpc\Digital Clock\bin\Release\*
+    - name: release
+      uses: actions/create-release@v1
+      with:
+      draft: false
+      prerelease: false
+      release_name: ${{ steps.version.outputs.version }}
+      tag_name: ${{ github.ref }}
+      body_path: readme.md
+      env:
+      GITHUB_TOKEN: ${{ github.token }} 
+      
      
 
  
