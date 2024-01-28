@@ -58,16 +58,14 @@ jobs:
         tag_name: ${{ github.run_number }}
         body: ${{ github.event.head_commit.message }}
 
-    - name: Dump Vars 
-      env: 
-        ALLVARS:  ${{ toJSON(vars) }}
-      shell: bash
-      run: echo "$ALLVARS"
- 
- 
- 
- 
- 
+    - name: Upload Release
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+      with:
+        name: published
+        path: D:\a\Digital-Clock-in-sharpc\Digital-Clock-in-sharpc\Digital Clock\bin\Release\*
+
  
  
  
