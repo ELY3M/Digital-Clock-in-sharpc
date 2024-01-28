@@ -28,10 +28,10 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@latest
 
     - name: Add MSBuild to PATH
-      uses: microsoft/setup-msbuild@v1.0.2
+      uses: microsoft/setup-msbuild@latest
 
     - name: Restore NuGet packages
       working-directory: ${{env.GITHUB_WORKSPACE}}
@@ -44,22 +44,20 @@ jobs:
       run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.SOLUTION_FILE_PATH}}
       
     - name: Upload Artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@latest
       with:
         name: published
         path: D:\a\Digital-Clock-in-sharpc\Digital-Clock-in-sharpc\Digital Clock\bin\Release\*
     - name: release
-      uses: actions/create-release@v1
-      with:
-      draft: false
-      prerelease: false
-      release_name: ${{ steps.version.outputs.version }}
-      tag_name: ${{ github.ref }}
-      body_path: readme.md
+      uses: actions/create-release@latest
       env:
-      GITHUB_TOKEN: ${{ github.token }} 
-      
-     
+        GITHUB_TOKEN: ${{ github.token }} 
+      with:
+        draft: false
+        prerelease: false
+        release_name: ${{ steps.version.outputs.version }}
+        tag_name: ${{ github.ref }}
+        body_path: readme.md
 
  
  
