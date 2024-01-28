@@ -55,7 +55,7 @@ jobs:
         draft: false
         prerelease: false
         release_name: ${{ steps.version.outputs.version }}
-        tag_name: ${{ github.event.head_commit }}
+        tag_name: ${{ github.run_number }}
         body_path: ${{ github.event.head_commit.message }}
 
  
