@@ -59,7 +59,7 @@ jobs:
         body: ${{ github.event.head_commit.message }}
       
     - name: Dump vars context
-      run: echo ${{ toJSON(vars) }}      
+      run: echo "${{ toJSON(vars) }}"     
 
  
  
