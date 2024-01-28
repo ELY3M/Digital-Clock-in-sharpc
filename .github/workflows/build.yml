@@ -57,10 +57,12 @@ jobs:
         release_name: ${{ steps.version.outputs.version }}
         tag_name: ${{ github.run_number }}
         body: ${{ github.event.head_commit.message }}
-     
- 
- 
- 
+
+    - name: Dump Vars 
+      env: 
+        ALLVARS:  ${{ toJSON(vars) }}
+       shell: bash
+      run: echo "$ALLVARS"
  
  
  
