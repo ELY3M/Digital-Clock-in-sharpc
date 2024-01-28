@@ -61,7 +61,7 @@ jobs:
     - name: Dump Vars 
       env: 
         ALLVARS:  ${{ toJSON(vars) }}
-       shell: bash
+      shell: bash
       run: echo "$ALLVARS"
  
  
