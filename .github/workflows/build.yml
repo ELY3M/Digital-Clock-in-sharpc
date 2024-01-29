@@ -50,20 +50,14 @@ jobs:
         retention-days: 1
       env: 
         MYID: ${{ steps.artifact-upload-step.outputs.artifact-id }}
-        MYURL: ${{ steps.artifact-upload-step.outputs.artifact-url }}
+        MYURL: ${{ artifact-url }}
+
+    - name: Output MYURL
+      run:  echo 'Artifact URL is ${{ env.MYURL }}'
 
     - name: Output artifact URL test1
       run:  echo 'Artifact URL is ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ steps.artifact-upload-step.outputs.artifact-id }}'
-      
-    - name: Output artifact URL test2
-      run:  echo 'Artifact URL is ${{ steps.artifact-upload-step.outputs.artifact-url }}'      
-      
-    - name: Output artifact ID
-      run:  echo 'Artifact ID is ${{ env.MYID }}'
-
-    - name: Output artifact URL env
-      run:  echo 'Artifact URL is ${{ env.MYURL }}'
-      
+            
       
     ##- name: Get Artifact URL
     ##  run: echo "::set-output name=artifact_url::https://github.com/ELY3M/suites/$GITHUB_RUN_ID/artifacts/Release.zip"
