@@ -44,13 +44,15 @@ jobs:
       
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
-      run:  echo 'Artifact ID is ${{ steps.artifact-upload-step.outputs.artifact-id }}'
       with:
         name: Release
         path: D:\a\Digital-Clock-in-sharpc\Digital-Clock-in-sharpc\Digital Clock\bin\Release\*
         retention-days: 1
       env: 
         MYURL: ${{ steps.artifact-upload-step.outputs.artifact-url }}
+
+    - name: Output artifact ID
+      run:  echo 'Artifact ID is ${{ steps.artifact-upload-step.outputs.artifact-id }}'
 
     ##- name: Get Artifact URL
     ##  run: echo "::set-output name=artifact_url::https://github.com/ELY3M/suites/$GITHUB_RUN_ID/artifacts/Release.zip"
