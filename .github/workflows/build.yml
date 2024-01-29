@@ -49,8 +49,9 @@ jobs:
         path: D:\a\Digital-Clock-in-sharpc\Digital-Clock-in-sharpc\Digital Clock\bin\Release\*
         retention-days: 1
       env: 
-        MYID: ${{ artifact-upload-step.outputs.artifact-id }}
-        MYURL: ${{ artifact-upload-step.outputs.artifact-url }}
+        GITHUB_TOKEN: ${{ github.token }} 
+        MYID: ${{ steps.artifact-upload-step.outputs.artifact-id }}
+        MYURL: ${{ steps.artifact-upload-step.outputs.artifact-url }}
 
     - name: Output MYURL
       run:  echo 'Artifact URL is ${{ env.MYURL }}'
