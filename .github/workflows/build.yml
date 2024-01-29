@@ -52,10 +52,16 @@ jobs:
         MYID: ${{ steps.artifact-upload-step.outputs.artifact-id }}
         MYURL: ${{ steps.artifact-upload-step.outputs.artifact-url }}
 
+    - name: Output artifact URL test1
+      run:  echo 'Artifact URL is ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ steps.artifact-upload-step.outputs.artifact-id }}'
+      
+    - name: Output artifact URL test2
+      run:  echo 'Artifact URL is ${{ steps.artifact-upload-step.outputs.artifact-url }}'      
+      
     - name: Output artifact ID
       run:  echo 'Artifact ID is ${{ env.MYID }}'
 
-    - name: Output artifact URL
+    - name: Output artifact URL env
       run:  echo 'Artifact URL is ${{ env.MYURL }}'
       
       
