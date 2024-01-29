@@ -50,8 +50,8 @@ jobs:
         retention-days: 1
       env: 
         GITHUB_TOKEN: ${{ github.token }} 
-        MYID: ${{ env.artifact-id }} ##${{ steps.artifact-upload-step.outputs.artifact-id }}
-        MYURL: ${{ env.artifact-url }} ##${{ steps.artifact-upload-step.outputs.artifact-url }}
+        MYID: ${{ steps.artifact-upload-step.outputs.artifact-id }}
+        MYURL: ${{ steps.artifact-upload-step.outputs.artifact-url }}
 
     - name: Output MYURL
       run:  echo 'Artifact URL is ${{ env.MYURL }}'
