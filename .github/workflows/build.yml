@@ -50,7 +50,7 @@ jobs:
         retention-days: 1
       env: 
         MYID: ${{ steps.artifact-upload-step.outputs.artifact-id }}
-        MYURL: ${{ artifact-url }}
+        MYURL: ${{ steps.artifact-upload-step.outputs.artifact-url }}
 
     - name: Output MYURL
       run:  echo 'Artifact URL is ${{ env.MYURL }}'
