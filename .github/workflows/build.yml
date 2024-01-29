@@ -49,8 +49,8 @@ jobs:
         path: D:\a\Digital-Clock-in-sharpc\Digital-Clock-in-sharpc\Digital Clock\bin\Release\*
         retention-days: 1
       env: 
-        MYID: ${{ steps.artifact-upload-step.outputs.artifact-id }}
-        MYURL: ${{ steps.artifact-upload-step.outputs.artifact-url }}
+        MYID: ${{ env.steps.artifact-upload-step.outputs.artifact-id }}
+        MYURL: ${{ env.steps.artifact-upload-step.outputs.artifact-url }}
 
     - name: Output MYURL
       run:  echo 'Artifact URL is ${{ env.MYURL }}'
@@ -58,10 +58,6 @@ jobs:
     - name: Output artifact URL test1
       run:  echo 'Artifact URL is ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ steps.artifact-upload-step.outputs.artifact-id }}'
             
-      
-    ##- name: Get Artifact URL
-    ##  run: echo "::set-output name=artifact_url::https://github.com/ELY3M/suites/$GITHUB_RUN_ID/artifacts/Release.zip"
-
 
     - name: Create Release
       uses: actions/create-release@latest
