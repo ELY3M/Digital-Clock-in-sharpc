@@ -56,7 +56,7 @@ jobs:
       run:  echo 'Artifact ID is ${{ env.MYID }}'
 
     - name: Output artifact URL
-      run:  echo 'Artifact URL is ${{ MYURL }}'
+      run:  echo 'Artifact URL is ${{ env.MYURL }}'
       
       
     ##- name: Get Artifact URL
