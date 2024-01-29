@@ -49,10 +49,11 @@ jobs:
         path: D:\a\Digital-Clock-in-sharpc\Digital-Clock-in-sharpc\Digital Clock\bin\Release\*
         retention-days: 1
       env: 
+        MYID: ${{ steps.artifact-upload-step.outputs.artifact-id }}
         MYURL: ${{ steps.artifact-upload-step.outputs.artifact-url }}
 
     - name: Output artifact ID
-      run:  echo 'Artifact ID is ${{ steps.artifact-upload-step.outputs.artifact-id }}'
+      run:  echo 'Artifact ID is ${{ env.MYID }}'
 
     ##- name: Get Artifact URL
     ##  run: echo "::set-output name=artifact_url::https://github.com/ELY3M/suites/$GITHUB_RUN_ID/artifacts/Release.zip"
