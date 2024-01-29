@@ -55,6 +55,10 @@ jobs:
     - name: Output artifact ID
       run:  echo 'Artifact ID is ${{ env.MYID }}'
 
+    - name: Output artifact URL
+      run:  echo 'Artifact URL is ${{ MYURL }}'
+      
+      
     ##- name: Get Artifact URL
     ##  run: echo "::set-output name=artifact_url::https://github.com/ELY3M/suites/$GITHUB_RUN_ID/artifacts/Release.zip"
 
