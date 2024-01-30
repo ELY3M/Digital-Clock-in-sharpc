@@ -51,6 +51,9 @@ jobs:
         name: Release
         path: ${{ github.workspace }}\Digital Clock\bin\Release\*
         retention-days: 1
+        run: |
+         echo "MYID: ${{ steps.artifact-upload-step.outputs.artifact-id }}"
+         echo "MYURL: ${{ steps.artifact-upload-step.outputs.artifact-url }}"
       env: 
         GITHUB_TOKEN: ${{ github.token }} 
         MYID: ${{ steps.artifact-upload-step.outputs.artifact-id }}
@@ -60,10 +63,7 @@ jobs:
       run:  echo 'Artifact URL is ${{ steps.artifact-upload-step.outputs.artifact-url }}'
 
     - name: Output env.MYURL
-      run:  echo 'Artifact URL is ${{ env.MYURL }}'
-
-    - name: Output MYURL
-      run:  echo 'Artifact URL is ${{ MYURL }}'      
+      run:  echo 'Artifact URL is ${{ env.MYURL }}'     
 
     - name: Output artifact URL test1
       run:  echo 'Artifact URL is ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ steps.artifact-upload-step.outputs.artifact-id }}'
