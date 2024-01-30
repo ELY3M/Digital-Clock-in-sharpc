@@ -62,6 +62,9 @@ jobs:
     - name: Output env.MYURL
       run:  echo 'Artifact URL is ${{ env.MYURL }}'
 
+    - name: Output vars.MYURL
+      run:  echo 'Artifact URL is ${{ vars.MYURL }}'      
+
     - name: Output artifact URL test1
       run:  echo 'Artifact URL is ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ steps.artifact-upload-step.outputs.artifact-id }}'
             
