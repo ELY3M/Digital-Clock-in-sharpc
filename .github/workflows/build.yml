@@ -19,8 +19,8 @@ env:
   # You can convert this to a build matrix if you need coverage of multiple configuration types.
   # https://docs.github.com/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
   BUILD_CONFIGURATION: Release
-  MYID: id
-  MYURL: url
+  MYID: ${{ steps.artifact-upload-step.outputs.artifact-id }}
+  MYURL: ${{ steps.artifact-upload-step.outputs.artifact-url }}
 
 permissions: write-all
 
