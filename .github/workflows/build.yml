@@ -43,18 +43,18 @@ jobs:
       run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.SOLUTION_FILE_PATH}}
       
     - name: Show Github infos
-      run:  echo 'Workspace path ${{ github.workspace }} - Workspace path 2 ${{env.GITHUB_WORKSPACE}}'      
+      run:  echo 'Workspace path ${{ github.workspace }}'  ##D:\a\Digital-Clock-in-sharpc\Digital-Clock-in-sharpc    
       
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
         name: Release
-        path: D:\a\Digital-Clock-in-sharpc\Digital-Clock-in-sharpc\Digital Clock\bin\Release\*
+        path: ${{ github.workspace }}\Digital Clock\bin\Release\*
         retention-days: 1
       env: 
         GITHUB_TOKEN: ${{ github.token }} 
-        MYID: ${{ steps.artifact-upload-step.outputs.artifact-id }}
-        MYURL: ${{ steps.artifact-upload-step.outputs.artifact-url }}
+        MYID: ${{ github.steps.artifact-upload-step.outputs.artifact-id }}
+        MYURL: ${{ github.steps.artifact-upload-step.outputs.artifact-url }}
 
     - name: Output MYURL
       run:  echo 'Artifact URL is ${{ env.MYURL }}'
