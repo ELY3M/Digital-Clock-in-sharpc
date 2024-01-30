@@ -19,8 +19,6 @@ env:
   # You can convert this to a build matrix if you need coverage of multiple configuration types.
   # https://docs.github.com/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
   BUILD_CONFIGURATION: Release
-  MYID: ${{ steps.artifact-upload-step.outputs.artifact-id }}
-  MYURL: ${{ steps.artifact-upload-step.outputs.artifact-url }}
 
 permissions: write-all
 
@@ -58,8 +56,15 @@ jobs:
         MYID: ${{ steps.artifact-upload-step.outputs.artifact-id }}
         MYURL: ${{ steps.artifact-upload-step.outputs.artifact-url }}
 
+    - name: Output Artifact MYURL
+      run:  echo 'Artifact URL is ${{ steps.artifact-upload-step.outputs.artifact-url }}'
+
     - name: Output MYURL
+      run:  echo 'Artifact URL is ${{ MYURL }}'
+
+    - name: Output env.MYURL
       run:  echo 'Artifact URL is ${{ env.MYURL }}'
+
 
     - name: Output artifact URL test1
       run:  echo 'Artifact URL is ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ steps.artifact-upload-step.outputs.artifact-id }}'
