@@ -47,9 +47,7 @@ jobs:
       
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
-      run: |
-         echo "MYID=${{ steps.artifact-upload-step.outputs.artifact-id }} >>$GITHUB_ENV"
-         echo "MYURL=${{ steps.artifact-upload-step.outputs.artifact-url }} >>$GITHUB_ENV"
+      id: artifact-upload-step
       with:
         name: Release
         path: ${{ github.workspace }}\Digital Clock\bin\Release\*
@@ -58,7 +56,11 @@ jobs:
         GITHUB_TOKEN: ${{ github.token }} 
         MYID: ${{ steps.artifact-upload-step.outputs.artifact-id }}
         MYURL: ${{ steps.artifact-upload-step.outputs.artifact-url }}
+        
 
+    - name: Output artifact ID
+      run:  echo 'Artifact ID is ${{ steps.artifact-upload-step.outputs.artifact-id }}'        
+        
     - name: Output Artifact MYURL
       run:  echo 'Artifact URL is ${{ steps.artifact-upload-step.outputs.artifact-url }}'
 
