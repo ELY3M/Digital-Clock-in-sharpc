@@ -54,7 +54,7 @@ jobs:
       env: 
         GITHUB_TOKEN: ${{ github.token }} 
         MYID: ${{ github.steps.artifact-upload-step.outputs.artifact-id }}
-        MYURL: "url---test"
+        MYURL: 'FUCKYOU'
 
     - name: Output MYURL
       run:  echo 'Artifact URL is ${{ env.MYURL }}'
