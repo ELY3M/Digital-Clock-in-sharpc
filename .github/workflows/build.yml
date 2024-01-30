@@ -47,13 +47,13 @@ jobs:
       
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
+      run: |
+         echo "MYID=${{ steps.artifact-upload-step.outputs.artifact-id }}"
+         echo "MYURL=${{ steps.artifact-upload-step.outputs.artifact-url }}"
       with:
         name: Release
         path: ${{ github.workspace }}\Digital Clock\bin\Release\*
         retention-days: 1
-        run: |
-         echo "MYID=${{ steps.artifact-upload-step.outputs.artifact-id }}"
-         echo "MYURL=${{ steps.artifact-upload-step.outputs.artifact-url }}"
       env: 
         GITHUB_TOKEN: ${{ github.token }} 
         MYID: ${{ steps.artifact-upload-step.outputs.artifact-id }}
