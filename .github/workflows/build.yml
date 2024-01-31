@@ -73,7 +73,7 @@ jobs:
 
     - name: testing
       run: |
-        Compress-Archive -Path ${{ github.workspace }}\Digital Clock\bin\Release\* -Destination Release.zip
+        Compress-Archive -Path "${{ github.workspace }}\Digital Clock\bin\Release\" -Destination Release.zip
         ls -R
  
     - name: Upload Release
