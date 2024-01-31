@@ -77,7 +77,7 @@ jobs:
         prerelease: false    
         tag_name: ${{ github.run_number }}
         body: ${{ github.event.head_commit.message }}
-        files: ${{ runner.temp }}\Release.zip
+        files: build\Release.zip
       env:
         GITHUB_TOKEN: ${{ github.token }} 
 
