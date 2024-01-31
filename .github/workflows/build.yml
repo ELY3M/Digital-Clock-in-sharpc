@@ -72,7 +72,9 @@ jobs:
         body: ${{ github.event.head_commit.message }}
 
     - name: testing
-      run: pwd    
+      run: | 
+      ls -R
+      ls -la ${{ github.workspace }}\Digital Clock\bin\Release\      
         
     - name: Upload Release
       uses: softprops/action-gh-release@v1
