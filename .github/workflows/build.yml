@@ -51,6 +51,7 @@ jobs:
       with:
         name: Release
         path: ${{ github.workspace }}\Digital Clock\bin\Release\*
+        overwrite: true
         retention-days: 1
 
     - name: Output artifact ID
@@ -77,7 +78,7 @@ jobs:
         prerelease: false    
         tag_name: ${{ github.run_number }}
         body: ${{ github.event.head_commit.message }}
-        files: build\Release.zip
+        files: build/Release.zip
       env:
         GITHUB_TOKEN: ${{ github.token }} 
 
