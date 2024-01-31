@@ -79,7 +79,9 @@ jobs:
 
     - uses: ncipollo/release-action@v1
       with:
-        tag_name: ${{ github.run_number }}
+        draft: false
+        prerelease: false      
+        tag: ${{ github.run_number }}
         body: ${{ github.event.head_commit.message }}
         artifacts: "Release.zip"
             
