@@ -71,11 +71,9 @@ jobs:
         tag_name: ${{ github.run_number }}
         body: ${{ github.event.head_commit.message }}
 
-    - name: testing
-      run: |
-        Compress-Archive -Path "${{ github.workspace }}\Digital Clock\bin\Release\" -Destination Release.zip
-        ls -R
- 
+    - name: Zipping up Release folder
+      run: Compress-Archive -Path "${{ github.workspace }}\Digital Clock\bin\Release\" -Destination Release.zip
+
     - name: Upload Release
       uses: softprops/action-gh-release@v1
       with:
@@ -83,7 +81,7 @@ jobs:
         prerelease: false    
         tag_name: ${{ github.run_number }}
         body: ${{ github.event.head_commit.message }}
-        files: build/Release.zip
+        files: ${{ github.workspace }}/Release.zip
       env:
         GITHUB_TOKEN: ${{ github.token }} 
 
