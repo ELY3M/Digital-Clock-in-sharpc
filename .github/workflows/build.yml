@@ -71,8 +71,8 @@ jobs:
         tag_name: ${{ github.run_number }}
         body: ${{ github.event.head_commit.message }}
 
-    - name: List Release folder - test
-      run: ls -R ${{ github.workspace }}\Digital Clock\bin\Release\    
+    - name: testing
+      run: pwd    
         
     - name: Upload Release
       uses: softprops/action-gh-release@v1
