@@ -73,11 +73,6 @@ jobs:
 
     - name: Zipping up Release folder
       run: Compress-Archive -Path "${{ github.workspace }}\Digital Clock\bin\Release\" -Destination Release.zip
-
-    - name: test
-      run: ls -R
-
-    - name: Upload Release
       uses: softprops/action-gh-release@v1
       with:
         draft: false
