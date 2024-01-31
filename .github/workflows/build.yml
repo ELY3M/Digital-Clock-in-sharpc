@@ -47,29 +47,17 @@ jobs:
       
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
-      id: artifact-upload-step
+      id: upload
       with:
         name: Release
         path: ${{ github.workspace }}\Digital Clock\bin\Release\*
         retention-days: 1
-      env: 
-        GITHUB_TOKEN: ${{ github.token }} 
-        MYID: ${{ steps.artifact-upload-step.outputs.artifact-id }}
-        MYURL: ${{ steps.artifact-upload-step.outputs.artifact-url }}
-        
 
     - name: Output artifact ID
-      run:  echo 'Artifact ID is ${{ steps.artifact-upload-step.outputs.artifact-id }}'        
+      run:  echo 'Artifact ID is ${{ steps.upload.outputs.artifact-id }}'        
         
-    - name: Output Artifact MYURL
-      run:  echo 'Artifact URL is ${{ steps.artifact-upload-step.outputs.artifact-url }}'
-
-    - name: Output env.MYURL
-      run:  echo 'Artifact URL is ${{ env.MYURL }}'     
-
-    - name: Output artifact URL test1
-      run:  echo 'Artifact URL is ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ steps.artifact-upload-step.outputs.artifact-id }}'
-            
+    - name: Output Artifact URL
+      run:  echo 'Artifact URL is ${{ steps.upload.outputs.artifact-url }}'
 
     - name: Create Release
       uses: actions/create-release@latest
@@ -87,7 +75,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ github.token }}
       with:
-        upload_url: ${{ env.MYURL }}  
+        upload_url: ${{ steps.upload.outputs.artifact-url }} 
 
     - name: Upload Release
       uses: softprops/action-gh-release@v1
@@ -100,5 +88,3 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ github.token }}  
         
-   
-   
