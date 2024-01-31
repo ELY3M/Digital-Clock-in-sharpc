@@ -77,7 +77,7 @@ jobs:
         prerelease: false    
         tag_name: ${{ github.run_number }}
         body: ${{ github.event.head_commit.message }}
-        files: ${{ github.workspace }}\Digital Clock\bin\Release\*
+        files: ${{ github.workspace }}\Digital Clock\bin\Release\Release.zip
       env:
         GITHUB_TOKEN: ${{ github.token }} 
 
@@ -85,5 +85,4 @@ jobs:
 
 
 
-        
         
