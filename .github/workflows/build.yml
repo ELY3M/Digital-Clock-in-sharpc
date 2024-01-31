@@ -20,7 +20,7 @@ env:
   # https://docs.github.com/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
   BUILD_CONFIGURATION: Release
 
-permissions: write-all
+permissions: write-all|read-all
 
 jobs:
   build:
@@ -76,14 +76,6 @@ jobs:
 
     - name: test
       run: ls -R
-
-    - uses: ncipollo/release-action@v1
-      with:
-        draft: false
-        prerelease: false      
-        tag: ${{ github.run_number }}
-        body: ${{ github.event.head_commit.message }}
-        artifacts: "Release.zip"
             
     - name: Upload Release
       uses: softprops/action-gh-release@v1
