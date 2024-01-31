@@ -71,6 +71,16 @@ jobs:
         tag_name: ${{ github.run_number }}
         body: ${{ github.event.head_commit.message }}
 
+    - name: Download Artifact
+    - uses: actions/download-artifact@v3
+          with:
+            name: Release
+            path: ${{ github.workspace }}\Digital Clock\bin\
+        - run: zip -r Release.zip Release
+        - uses: ncipollo/release-action@v1
+          with:
+            artifacts: "Release.zip"
+
     - name: Upload Release
       uses: softprops/action-gh-release@v1
       with:
