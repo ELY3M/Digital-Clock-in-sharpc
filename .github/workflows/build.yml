@@ -72,7 +72,7 @@ jobs:
         body: ${{ github.event.head_commit.message }}
 
     - name: Zipping up Release folder
-      run: Compress-Archive -Path "${{ github.workspace }}\Digital Clock\bin\Release\" -Destination Release.zip
+      run: Compress-Archive -Path "${{ github.workspace }}\Digital Clock\bin\Release\" -Destination "${{ github.workspace }}\Digital Clock\bin\Release\Release.zip"
 
     - name: test
       run: ls -R
@@ -84,7 +84,7 @@ jobs:
         prerelease: false    
         tag_name: ${{ github.run_number }}
         body: ${{ github.event.head_commit.message }}
-        files: D:\a\Digital-Clock-in-sharpc\Digital-Clock-in-sharpc\Release.zip
+        files: "${{ github.workspace }}\Digital Clock\bin\Release\Release.zip"
       env:
         GITHUB_TOKEN: ${{ github.token }} 
         
