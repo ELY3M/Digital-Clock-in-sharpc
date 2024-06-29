@@ -58,9 +58,6 @@ jobs:
 
     - name: Zipping up Release folder
       run: 7z a release.zip "${{ github.workspace }}\Digital Clock\bin\Release\"
-      
-    - name: test
-      run: ls -R
             
     - name: Upload Release
       uses: softprops/action-gh-release@v2
