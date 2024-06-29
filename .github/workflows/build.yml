@@ -45,21 +45,6 @@ jobs:
     - name: Show Github infos
       run:  echo 'Workspace path ${{ github.workspace }} - runner.temp ${{ runner.temp }}'     
       
-    - name: Upload Artifact
-      uses: actions/upload-artifact@v4
-      id: upload
-      with:
-        name: Release
-        path: ${{ github.workspace }}\Digital Clock\bin\Release\*
-        overwrite: true
-        retention-days: 1
-
-    - name: Output artifact ID
-      run:  echo 'Artifact ID is ${{ steps.upload.outputs.artifact-id }}'        
-        
-    - name: Output Artifact URL
-      run:  echo 'Artifact URL is ${{ steps.upload.outputs.artifact-url }}'
-
     - name: Create Release
       uses: actions/create-release@latest
       env:
@@ -72,7 +57,6 @@ jobs:
         body: ${{ github.event.head_commit.message }}
 
     - name: Zipping up Release folder
-      ##run: Compress-Archive -Path "${{ github.workspace }}\Digital Clock\bin\Release\" -Destination release.zip
       run: 7z a release.zip "${{ github.workspace }}\Digital Clock\bin\Release\"
       
     - name: test
@@ -89,9 +73,5 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ github.token }} 
         
-
-
-
-
 
         
