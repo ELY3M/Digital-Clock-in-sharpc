@@ -72,7 +72,8 @@ jobs:
         body: ${{ github.event.head_commit.message }}
 
     - name: Zipping up Release folder
-      run: Compress-Archive -Path "${{ github.workspace }}\Digital Clock\bin\Release\" -Destination release.zip
+      ##run: Compress-Archive -Path "${{ github.workspace }}\Digital Clock\bin\Release\" -Destination release.zip
+      run: 7z a release.zip "${{ github.workspace }}\Digital Clock\bin\Release\"
       
     - name: test
       run: ls -R
