@@ -1,0 +1,19 @@
+H:\dev\windev\Digital-Clock-in-sharpc\Digital Clock\bin\Debug\Digital Clock.exe.config
+H:\dev\windev\Digital-Clock-in-sharpc\Digital Clock\bin\Debug\Digital Clock.exe
+H:\dev\windev\Digital-Clock-in-sharpc\Digital Clock\bin\Debug\Digital Clock.pdb
+H:\dev\windev\Digital-Clock-in-sharpc\Digital Clock\bin\Debug\CircularProgressBar.dll
+H:\dev\windev\Digital-Clock-in-sharpc\Digital Clock\bin\Debug\WinFormAnimation.dll
+H:\dev\windev\Digital-Clock-in-sharpc\Digital Clock\bin\Debug\CircularProgressBar.xml
+H:\dev\windev\Digital-Clock-in-sharpc\Digital Clock\obj\Debug\Digital Clock.csproj.AssemblyReference.cache
+H:\dev\windev\Digital-Clock-in-sharpc\Digital Clock\obj\Debug\Digital_Clock.Form1.resources
+H:\dev\windev\Digital-Clock-in-sharpc\Digital Clock\obj\Debug\Digital_Clock.Properties.Resources.resources
+H:\dev\windev\Digital-Clock-in-sharpc\Digital Clock\obj\Debug\Digital Clock.csproj.GenerateResource.cache
+H:\dev\windev\Digital-Clock-in-sharpc\Digital Clock\obj\Debug\Digital Clock.csproj.CoreCompileInputs.cache
+H:\dev\windev\Digital-Clock-in-sharpc\Digital Clock\obj\Debug\Digital .3C4EB7E2.Up2Date
+H:\dev\windev\Digital-Clock-in-sharpc\Digital Clock\obj\Debug\Digital Clock.exe
+H:\dev\windev\Digital-Clock-in-sharpc\Digital Clock\obj\Debug\Digital Clock.pdb
+H:\dev\windev\Digital-Clock-in-sharpc\Digital Clock\bin\Debug\Digital Clock.exe.manifest
+H:\dev\windev\Digital-Clock-in-sharpc\Digital Clock\bin\Debug\Digital Clock.application
+H:\dev\windev\Digital-Clock-in-sharpc\Digital Clock\obj\Debug\Digital Clock.exe.config
+H:\dev\windev\Digital-Clock-in-sharpc\Digital Clock\obj\Debug\Digital Clock.exe.manifest
+H:\dev\windev\Digital-Clock-in-sharpc\Digital Clock\obj\Debug\Digital Clock.application
