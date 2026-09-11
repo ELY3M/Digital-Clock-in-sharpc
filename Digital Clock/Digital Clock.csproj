@@ -9,12 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- Upstream packages only ship .NET Framework WinForms assets, so keep referencing the committed DLLs directly. -->
+    <!-- Upstream packages only ship .NET Framework WinForms assets, so keep referencing the committed repository copies directly. -->
     <Reference Include="CircularProgressBar">
-      <HintPath>lib\CircularProgressBar.dll</HintPath>
+      <HintPath>..\packages\CircularProgressBar.2.8.0.16\lib\net40\CircularProgressBar.dll</HintPath>
     </Reference>
     <Reference Include="WinFormAnimation">
-      <HintPath>lib\WinFormAnimation.dll</HintPath>
+      <HintPath>..\packages\WinFormAnimation.1.6.0.4\lib\net40\WinFormAnimation.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>
