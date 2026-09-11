@@ -18,22 +18,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
 
     # Setup the .NET SDK (runs natively on Linux)
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '8.0.x' # Match your project's .NET version
+        dotnet-version: '9.0.x' # Match your project's .NET version
 
     # Restores and publishes the Windows .exe directly from Linux
     - name: Publish Windows EXE
       run: |
-        dotnet publish ${{ env.SOLUTION_FILE_PATH }} \
-          -c ${{ env.BUILD_CONFIGURATION }} \
-          -r win-x64 \
-          --self-contained true \
-          -o ./publish_windows
+        dotnet publish ${{ env.SOLUTION_FILE_PATH }} -c ${{ env.BUILD_CONFIGURATION }} -r win-x64 --self-contained true -o ./publish_windows
 
     - name: Show Github infos
       run: echo "Workspace path ${{ github.workspace }} - runner.temp ${{ runner.temp }}"     
