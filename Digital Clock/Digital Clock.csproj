@@ -9,11 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="CircularProgressBar">
-      <HintPath>..\packages\CircularProgressBar.2.8.0.16\lib\net40\CircularProgressBar.dll</HintPath>
-    </Reference>
-    <Reference Include="WinFormAnimation">
-      <HintPath>..\packages\WinFormAnimation.1.6.0.4\lib\net40\WinFormAnimation.dll</HintPath>
-    </Reference>
+    <PackageReference Include="CircularProgressBar" Version="2.8.0.16" NoWarn="NU1701" />
+    <PackageReference Include="WinFormAnimation" Version="1.6.0.4" NoWarn="NU1701" />
   </ItemGroup>
 </Project>
