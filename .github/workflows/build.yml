@@ -1,16 +1,15 @@
-name: .NET Cross-Compile Windows EXE
+name: Build
 
 on:
   push:
   pull_request:
-  ##workflow_dispatch:
-  ##workflow_call:
+  workflow_dispatch:
+  workflow_call:
 
 permissions: write-all
 
 jobs:
   build:
-    # Changed from windows-latest to ubuntu-latest
     runs-on: ubuntu-latest
 
     steps:
@@ -22,7 +21,6 @@ jobs:
       with:
         dotnet-version: '9.0.x' # Match your project's .NET version
 
-    # Restores and publishes the Windows .exe directly from Linux
     - name: Publish Windows EXE
       run: |
         dotnet publish . -c Release -r win-x64 --self-contained true -o ./publish_windows
@@ -30,7 +28,6 @@ jobs:
     - name: Show Github infos
       run: echo "Workspace path ${{ github.workspace }} - runner.temp ${{ runner.temp }}"     
 
-    # Linux has 'zip' built-in, replacing the Windows 7z syntax
     - name: Zipping up Release folder
       run: |
         cd ./publish_windows
