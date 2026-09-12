@@ -4,11 +4,6 @@ on:
   push:
   pull_request:
   workflow_dispatch:
-  workflow_call:
-
-env:
-  SOLUTION_FILE_PATH: .
-  BUILD_CONFIGURATION: Release
 
 permissions: write-all
 
@@ -29,7 +24,7 @@ jobs:
     # Restores and publishes the Windows .exe directly from Linux
     - name: Publish Windows EXE
       run: |
-        dotnet publish ${{ env.SOLUTION_FILE_PATH }} -c ${{ env.BUILD_CONFIGURATION }} -r win-x64 --self-contained true -o ./publish_windows
+        dotnet publish . -c Release -r win-x64 --self-contained true -o ./publish_windows
 
     - name: Show Github infos
       run: echo "Workspace path ${{ github.workspace }} - runner.temp ${{ runner.temp }}"     
