@@ -3,8 +3,8 @@ name: .NET Cross-Compile Windows EXE
 on:
   push:
   pull_request:
-  workflow_dispatch:
-  workflow_call:
+  ##workflow_dispatch:
+  ##workflow_call:
 
 permissions: write-all
 
